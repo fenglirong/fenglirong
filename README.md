@@ -1,6 +1,6 @@
 Step1, pull the code and run it
 Step2, open swagger page:  http://localhost:8080/swagger-ui.html
-      this step can approve use Swagger documentation for endpoints is preferred.
+      this step can prove use Swagger documentation for endpoints is preferred.
 Step3, select a spec "login Interface" find the login-controller, press the 'post' button, then try it out and execute it,you will get the username"Frank"'s token.
    profile1: username: Frank, password:123456 , write access,admin role 
    profile2: username: employee, password:123456 , read access,normal role 
