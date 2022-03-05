@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hello.mapper.AddressesMapper">
+
+    <select id="getAllAddresses"  resultMap="Addresses">
+     select a.id aid,a.address_name addressName,p.name pname from addresses a,personinfo p where a.pid= p.id
+    </select>
+    <resultMap id="Addresses" type="com.example.hello.pojo.Addresses">
+        <result property="id" column="aid"/>
+        <result property="addressName" column="addressName"/>
+        <association property="personInfo" javaType="com.example.hello.pojo.PersonInfo">
+            <result property="name" column="pname"/>
+        </association>
+    </resultMap>
+
+
+</mapper>

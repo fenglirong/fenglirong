@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hello.mapper.ClubMapper">
+
+    <select id="getAllClubs" parameterType="int"  resultMap="clubs">
+     select c.id cid,c.name cname,p.name pname,p.id pid from personClub pc,personinfo p,club c where pc.pid=p.id and pc.cid=c.id and c.id =#{cid}
+    </select>
+    <resultMap id="clubs" type="com.example.hello.pojo.Club">
+        <result property="id" column="cid"/>
+        <result property="name" column="cname"/>
+        <collection property="personInfos" ofType="com.example.hello.pojo.PersonInfo">
+            <result property="id" column="pid"/>
+            <result property="name" column="pname"/>
+        </collection>
+    </resultMap>
+
+
+</mapper>
